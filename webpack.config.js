@@ -1,7 +1,7 @@
 const path = require('path');
-const HTMLWebpackPLugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
@@ -14,10 +14,7 @@ const cssLoaders = (addition) => {
 	const loaders = [
 		{
 			loader: MiniCssExtractPlugin.loader,
-			options: {
-				hmr: isDev,
-				reloadAll: true,
-			},
+			options: {},
 		},
 		'css-loader',
 	];
@@ -25,13 +22,15 @@ const cssLoaders = (addition) => {
 	if (addition) {
 		loaders.push(addition);
 	}
-
+	console.log(loaders);
 	return loaders;
 };
 
 module.exports = {
 	context: path.resolve(__dirname, 'src'),
-	entry: ['./js/index.js'],
+	entry: {
+		main: './index.js',
+	},
 	output: {
 		filename: filename('js'),
 		path: path.resolve(__dirname, 'dist'),
@@ -44,16 +43,22 @@ module.exports = {
 		},
 	},
 	devServer: {
-		port: 3300,
-		hot: isDev,
+		open: ['/main.html'],
+		static: {
+			directory: path.join(__dirname, 'dist'),
+		},
+		compress: true,
+		port: 8080,
 	},
 	plugins: [
-		new HTMLWebpackPLugin({
+		new HtmlWebpackPlugin({
+			filename: filename('html'),
 			template: './index.html',
 			minify: {
 				collapseWhitespace: !isDev,
 			},
 		}),
+
 		new CleanWebpackPlugin(),
 		// new CopyWebpackPlugin([
 		// 	{
@@ -65,18 +70,12 @@ module.exports = {
 			filename: filename('css'),
 		}),
 	],
+	optimization: {
+		minimize: !isDev,
+		minimizer: [new TerserWebpackPlugin(), new CssMinimizerPlugin()],
+	},
 	module: {
 		rules: [
-			{
-				test: /\.(?:js|mjs|cjs)$/,
-				exclude: /node_modules/,
-				use: {
-					loader: 'babel-loader',
-					options: {
-						presets: [['@babel/preset-env', { targets: '> 0.25%, not dead' }]],
-					},
-				},
-			},
 			{
 				test: /\.css$/,
 				use: cssLoaders(),
@@ -93,11 +92,16 @@ module.exports = {
 				test: /\.(ttf|woff|woff2|eot)$/,
 				use: ['file-loader'],
 			},
+			{
+				test: /\.(?:js|mjs|cjs)$/,
+				exclude: /node_modules/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: [['@babel/preset-env', { targets: '> 0.25%, not dead' }]],
+					},
+				},
+			},
 		],
 	},
-	optimization: {
-		minimize: !isDev,
-		minimizer: [new TerserWebpackPlugin(), new CssMinimizerPlugin()],
-	},
-	plugins: [new MiniCssExtractPlugin()],
 };
