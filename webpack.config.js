@@ -8,7 +8,8 @@ const TerserWebpackPlugin = require('terser-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 
-const filename = (ext) => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`);
+const filename = (ext, name) =>
+	isDev ? `${name}.${ext}` : `${name}.[hash].${ext}`;
 
 const cssLoaders = (addition) => {
 	const loaders = [
@@ -22,38 +23,30 @@ const cssLoaders = (addition) => {
 	if (addition) {
 		loaders.push(addition);
 	}
-	console.log(loaders);
 	return loaders;
 };
 
 module.exports = {
 	context: path.resolve(__dirname, 'src'),
-	entry: {
-		main: './index.js',
-	},
+	entry: './index.js',
 	output: {
-		filename: filename('js'),
+		filename: filename('js', 'index'),
 		path: path.resolve(__dirname, 'dist'),
 	},
-	resolve: {
-		extensions: ['.js', '.json'],
-		alias: {
-			'@models': path.resolve(__dirname, 'src/models'),
-			'@': path.resolve(__dirname, 'src'),
-		},
-	},
 	devServer: {
-		open: ['/main.html'],
-		static: {
-			directory: path.join(__dirname, 'dist'),
-		},
+		static: './dist',
+		open: true, // Автоматически открывать браузер
 		compress: true,
 		port: 8080,
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			filename: filename('html'),
-			template: './index.html',
+			filename: filename('html', 'index'),
+			template: path.resolve(__dirname, 'src/index.html'),
+			// Скрипты, которые нужно подключить к странице
+			chunks: ['index'],
+			// Логика загрузки
+			scriptLoading: 'defer',
 			minify: {
 				collapseWhitespace: !isDev,
 			},
@@ -67,7 +60,7 @@ module.exports = {
 		// 	},
 		// ]),
 		new MiniCssExtractPlugin({
-			filename: filename('css'),
+			filename: filename('css', 'style'),
 		}),
 	],
 	optimization: {
@@ -92,16 +85,16 @@ module.exports = {
 				test: /\.(ttf|woff|woff2|eot)$/,
 				use: ['file-loader'],
 			},
-			{
-				test: /\.(?:js|mjs|cjs)$/,
-				exclude: /node_modules/,
-				use: {
-					loader: 'babel-loader',
-					options: {
-						presets: [['@babel/preset-env', { targets: '> 0.25%, not dead' }]],
-					},
-				},
-			},
+			// {
+			// 	test: /\.(?:js|mjs|cjs)$/,
+			// 	exclude: /node_modules/,
+			// 	use: {
+			// 		loader: 'babel-loader',
+			// 		options: {
+			// 			presets: [['@babel/preset-env', { targets: '> 0.25%, not dead' }]],
+			// 		},
+			// 	},
+			// },
 		],
 	},
 };
