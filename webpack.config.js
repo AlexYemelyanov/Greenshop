@@ -28,25 +28,26 @@ const cssLoaders = (addition) => {
 
 module.exports = {
 	context: path.resolve(__dirname, 'src'),
-	entry: './index.js',
+	entry: ['webpack-dev-server/client?http://localhost:8080/', './index.js'],
 	output: {
 		filename: filename('js', 'index'),
 		path: path.resolve(__dirname, 'dist'),
+
+		clean: true,
 	},
 	devServer: {
-		static: './dist',
-		open: true, // Автоматически открывать браузер
+		static: {
+			directory: path.resolve(__dirname, 'dist'),
+		},
 		compress: true,
 		port: 8080,
+		liveReload: true,
+		hot: false,
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			filename: filename('html', 'index'),
 			template: path.resolve(__dirname, 'src/index.html'),
-			// Скрипты, которые нужно подключить к странице
-			chunks: ['index'],
-			// Логика загрузки
-			scriptLoading: 'defer',
 			minify: {
 				collapseWhitespace: !isDev,
 			},
@@ -85,16 +86,16 @@ module.exports = {
 				test: /\.(ttf|woff|woff2|eot)$/,
 				use: ['file-loader'],
 			},
-			// {
-			// 	test: /\.(?:js|mjs|cjs)$/,
-			// 	exclude: /node_modules/,
-			// 	use: {
-			// 		loader: 'babel-loader',
-			// 		options: {
-			// 			presets: [['@babel/preset-env', { targets: '> 0.25%, not dead' }]],
-			// 		},
-			// 	},
-			// },
+			{
+				test: /\.(?:js|mjs|cjs)$/,
+				exclude: /node_modules/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: [['@babel/preset-env', { targets: '> 0.25%, not dead' }]],
+					},
+				},
+			},
 		],
 	},
 };
