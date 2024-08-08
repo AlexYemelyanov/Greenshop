@@ -8,88 +8,214 @@
 </head>
 
 <body>
-  <header>
+  <header class="header">
     <div class="container">
-      <div class="header__right-block">Greenshop</div>
+      <div class="header__left-block">
+        <a href="#">
+          <img src="icons/Logo.svg" alt="logo">
+        </a>
+      </div>
       <div class="header__center-block">
         <nav class="navigation">
           <ul class="navigation__items">
-            <li class="navigation__item">Home</li>
-            <li class="navigation__item">Shop</li>
-            <li class="navigation__item">Plant Care</li>
-            <li class="navigation__item">Blogs</li>
+            <li class="navigation__item">
+              <a href="#">Home</a>
+            </li>
+            <li class="navigation__item">
+              <a href="#">Shop</a>
+            </li>
+            <li class="navigation__item">
+              <a href="#">Plant Care</a>
+            </li>
+            <li class="navigation__item">
+              <a href="#">Blogs</a>
+            </li>
           </ul>
         </nav>
       </div>
-      <div class="header__left-block">
-        <div class="action__search">search</div>
-        <div class="action__cart">cart</div>
-        <button class="button action__button"></button>
+      <div class="header__right-block">
+        <div class="action__search">
+          <a href="#">
+            <svg width="20" height="20" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M8.61539 2.65385C5.32229 2.65385 2.65385 5.32017 2.65385 8.60784C2.65385 11.8955 5.32229 14.5618 8.61539 14.5618C10.2583 14.5618 11.7449 13.8989 12.8238 12.825C13.9075 11.7463 14.5769 10.2556 14.5769 8.60784C14.5769 5.32017 11.9085 2.65385 8.61539 2.65385ZM1.5 8.60784C1.5 4.68166 4.6863 1.5 8.61539 1.5C12.5445 1.5 15.7308 4.68166 15.7308 8.60784C15.7308 10.3669 15.0905 11.9773 14.0312 13.218L16.3308 15.5149C16.5562 15.7401 16.5564 16.1054 16.3313 16.3308C16.1061 16.5562 15.7408 16.5564 15.5154 16.3313L13.2137 14.0322C11.9738 15.082 10.3682 15.7157 8.61539 15.7157C4.6863 15.7157 1.5 12.534 1.5 8.60784Z"
+                fill="#3D3D3D" />
+            </svg>
+          </a>
+        </div>
+        <div class="action__cart">
+          <a href="#">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M18.333 6.80134L17.3894 12.7778C17.2178 13.9562 16.2742 14.7138 15.0732 14.7138H6.83791C5.72271 14.7138 4.6933 13.872 4.52173 12.7778L3.49232 5.79124L3.23497 3.85521C3.14918 3.35016 2.72026 3.01346 2.11977 3.01346H1.51928C1.17615 3.01346 0.833008 2.67676 0.833008 2.34006C0.833008 2.00336 1.17615 1.66666 1.51928 1.66666H2.11977C3.32075 1.66666 4.35016 2.50841 4.43595 3.68686L4.60752 5.03366H16.7889C17.2178 5.03366 17.6467 5.20201 17.9041 5.53871C18.2472 5.87541 18.333 6.38046 18.333 6.80134Z"
+                fill="#3d3d3d" />
+              <path
+                d="M15.2448 18.3333C15.7185 18.3333 16.1026 17.9565 16.1026 17.4916C16.1026 17.0267 15.7185 16.6498 15.2448 16.6498C14.771 16.6498 14.3869 17.0267 14.3869 17.4916C14.3869 17.9565 14.771 18.3333 15.2448 18.3333Z"
+                fill="#3D3D3D" />
+              <path
+                d="M6.66634 18.3333C7.14012 18.3333 7.52418 17.9565 7.52418 17.4916C7.52418 17.0267 7.14012 16.6498 6.66634 16.6498C6.19257 16.6498 5.8085 17.0267 5.8085 17.4916C5.8085 17.9565 6.19257 18.3333 6.66634 18.3333Z"
+                fill="#3D3D3D" />
+            </svg>
+          </a>
+        </div>
+        <button type="button" class="button action__button">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.1601 10.1006H8.12598" stroke="white" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <path d="M15.7212 7.67059L18.1612 10.1006L15.7212 12.5306" stroke="white" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M13.6342 6.35823C13.3592 3.3749 12.2425 2.29156 7.80082 2.29156C1.88332 2.29156 1.88332 4.21656 1.88332 9.9999C1.88332 15.7832 1.88332 17.7082 7.80082 17.7082C12.2425 17.7082 13.3592 16.6249 13.6342 13.6416"
+              stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span>Login</span>
+        </button>
       </div>
     </div>
   </header>
+  <main>
+    <section class="preview">
+      <div class="container">
+        <div class="slides__container">
+          <div class="slide_wrapper show">
+            <div class="slide__content ">
+              <div class="slide__content-descr">
+                <h3>WELCOME TO GREENSHOP</h3>
+                <h1>LET'S MAKE A
+                  BETTER <span class="green">PLANET</span></h1>
+                <p>We are an online plant shop offering a wide range of cheap and trendy plants. Use our plants to
+                  create
+                  an unique Urban
+                  Jungle. Order your favorite plants!
+                </p>
+              </div>
+              <div class="slide__content-img">
+                <img src="images/prev1.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="slide_wrapper hide">
+            <div class="slide__content">
+              <div class="slide__content-descr">
+                <p>Welcome to greenshop</p>
+                <h1>Let’s Make a
+                  Better Planet</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, debitis cum? Error rerum et
+                  necessitatibus, saepe harum natus. Eaque suscipit nam, doloribus quidem ad vitae vero harum aut hic
+                  vel?
+                </p>
+              </div>
+              <div class="slide__content-img"></div>
+            </div>
+          </div>
+          <div class="slide_wrapper hide">
+            <div class="slide__content">
+              <div class="slide__content-descr">
+                <p>Welcome to greenshop</p>
+                <h1>Let’s Make a
+                  Better Planet</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, debitis cum? Error rerum et
+                  necessitatibus, saepe harum natus. Eaque suscipit nam, doloribus quidem ad vitae vero harum aut hic
+                  vel?
+                </p>
+              </div>
+              <div class="slide__content-img"></div>
+            </div>
+          </div>
 
-  <section class="preview">
-    <div class="container">
-      <div class="tabcontainer">
-        <div class="tabcontent">
-          <div class="tabcontent__descr">
-            <p>Welcome to greenshop</p>
-            <h1>Lorem ipsum dolor</h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, debitis cum? Error rerum et
-              necessitatibus, saepe harum natus. Eaque suscipit nam, doloribus quidem ad vitae vero harum aut hic vel?
-            </p>
-          </div>
-          <div class="tabcontent__img"></div>
-        </div>
-        <div class="tabcontent">
-          <div class="tabcontent__descr">
-            <p>Welcome to greenshop</p>
-            <h1>Lorem ipsum dolor</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore est fugiat tempora quibusdam quos
-              pariatur excepturi, hic similique quo nobis laudantium dolorem veniam voluptatem ipsam accusamus esse
-              aliquid a ut!</p>
-          </div>
-          <div class="tabcontent__img"></div>
-        </div>
-        <div class="tabcontent">
-          <div class="tabcontent__descr">
-            <p>Welcome to greenshop</p>
-            <h1>Lorem ipsum dolor</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore est fugiat tempora quibusdam quos
-              pariatur excepturi, hic similique quo nobis laudantium dolorem veniam voluptatem ipsam accusamus esse
-              aliquid a ut!</p>
-          </div>
-          <div class="tabcontent__img"></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="products">
-    <div class="container">
-      <div class="products__filter"></div>
-      <div class="products__cards"></div>
-      <div class="products__sale"></div>
-    </div>
-  </section>
-  <section class="slider">
-    <div class="container">
-      <div class="slideconteiner"></div>
-    </div>
-  </section>
-  <section class="blog">
-    <div class="container">
-      <div class="blog__header"></div>
-      <div class="blog__descr"></div>
-      <div class="blog__posts">
-        <div class="blog__post"></div>
-        <div class="blog__post"></div>
-        <div class="blog__post"></div>
-        <div class="blog__post"></div>
+    <section class="products">
+      <div class="container">
+        <div class="products__filter"></div>
+        <div class="products__cards">
+          <div class="products__cards-sort">
+            <div class="sort__left-block">
+              <p>All Plants</p>
+              <p>New Arrivals</p>
+              <p>Sale</p>
+            </div>
+            <div class="sort__right-block">
+              <p>Sort by:</p>
+              <select name="sortBy" id="sort">
+                <option value="Defaul sorting">Defaul sorting</option>
+                <option value="Price min to max">Price min to max</option>
+                <option value="Price max to min">Price max to min</option>
+                <option value="Name A-Z">Name A-Z</option>
+                <option value="Name Z-A">Name Z-A</option>
+              </select>
+            </div>
+          </div>
+          <div class="products__card">
+            <div class="products__card-img"><img src="images/barberton.png" alt="Angel Wing Begonia"></div>
+            <h2 class="products__card-name">Barberton Daisy</h2>
+            <p class="products_card-cost">$119.00</p>
+          </div>
+          <div class="products__card">
+            <div class="products__card-img"><img src="images/begonia.png" alt="Angel Wing Begonia"></div>
+            <h2 class="products__card-name">Angel Wing Begonia</h2>
+            <p class="products_card-cost">$169.00</p>
+          </div>
+          <div class="products__card">
+            <div class="products__card-img"><img src="images/violet.png" alt="African Violet"></div>
+            <h2 class="products__card-name">African Violet</h2>
+            <p class="products_card-cost">$199.00</p>
+          </div>
+          <div class="products__card">
+            <div class="products__card-img"><img src="images/lily.png" alt="Beach Spider Lily"></div>
+            <h2 class="products__card-name">Beach Spider Lily</h2>
+            <p class="products_card-cost">$129.00</p>
+          </div>
+          <div class="products__card">
+            <div class="products__card-img"><img src="images/bromelad.png" alt="Blushing Bromeliad"></div>
+            <h2 class="products__card-name">Blushing Bromeliad</h2>
+            <p class="products_card-cost">$139.00</p>
+          </div>
+          <div class="products__card">
+            <div class="products__card-img"><img src="images/aluminum.png" alt="Aluminum Plant"></div>
+            <h2 class="products__card-name">Aluminum Plant</h2>
+            <p class="products_card-cost">$179.00</p>
+          </div>
+          <div class="products__card">
+            <div class="products__card-img"><img src="images/fern.png" alt="Bird's Nest Fern"></div>
+            <h2 class="products__card-name">Bird's Nest Fern</h2>
+            <p class="products_card-cost">$99.00</p>
+          </div>
+          <div class="products__card">
+            <div class="products__card-img"><img src="images/broadleaf.png" alt="Broadleaf Lady Palm"></div>
+            <h2 class="products__card-name">Broadleaf Lady Palm</h2>
+            <p class="products_card-cost">$59.00</p>
+          </div>
+          <div class="products__card">
+            <div class="products__card-img"><img src="images/evergreen.png" alt="Chinese Evergreen"></div>
+            <h2 class="products__card-name">Chinese Evergreen</h2>
+            <p class="products_card-cost">$39.00</p>
+          </div>
+
+        </div>
+        <div class="products__sale"></div>
       </div>
-    </div>
-  </section>
+    </section>
+    <section class="slider">
+      <div class="container">
+        <div class="slideconteiner"></div>
+      </div>
+    </section>
+    <section class="blog">
+      <div class="container">
+        <div class="blog__header"></div>
+        <div class="blog__descr"></div>
+        <div class="blog__posts">
+          <div class="blog__post"></div>
+          <div class="blog__post"></div>
+          <div class="blog__post"></div>
+          <div class="blog__post"></div>
+        </div>
+      </div>
+    </section>
+  </main>
   <footer>
     <div class="container">
       <div class=""></div>

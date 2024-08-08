@@ -1,0 +1,33 @@
+@import './variables/color';
+
+.preview {
+  .container {
+    height: 470px;
+    .slides__container{
+      
+      .slide__content {
+        display: flex;
+        align-items: center;
+        .green {
+          color: $secondColor;
+          margin: 0;
+        }
+        &-descr {
+          height: 100%;
+          width: 57%;
+          margin-left: 45px;
+          margin-bottom: 6.5em;
+
+          p{
+            color: $descrColor;
+            padding-right: 140px;
+          }
+        }
+        &-img {
+          height: 100%;
+          width: 43%;
+        }
+      }
+    }
+  }
+}

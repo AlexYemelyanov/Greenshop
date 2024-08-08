@@ -1,8 +1,75 @@
-header {
-  width: 1200px;
-  height: 400px;
-  background-color: rgb(146, 223, 136);
-    h1{
-    font-size: 140px;
+@import './variables/color';
+
+.header {
+  .container {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  &__left-block {
+    width: 15%;
+    height: 100%;
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
     }
-}
+  }
+  &__center-block {
+    width: 60%;
+    .navigation {
+      a{
+        color: $mainColor;
+      }
+      &__items{
+        display: flex;
+        justify-content: space-evenly;
+      }
+      &__item {
+        width: fit-content;
+        height: 50px;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        
+        &:hover {
+          border-bottom: 2px solid $secondColor;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+  &__right-block {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+      .dark-light__button {
+        width: 140px;
+        height: 35px;
+      }
+      .action__button {
+        width: 100px;
+        height: 35px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16;
+        font-weight: 500;
+        
+        svg, span {
+          margin: 0;
+        }
+      }
+
+      div{
+        margin: 0;
+      }
+    }
+  }
+  
